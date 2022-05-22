@@ -7,6 +7,7 @@ import VaccinationImage from "../../../assets/images/vaccine-page.jpg";
 import "./Vaccination.css";
 import VaccinationForm from "./Register/VaccinationForm";
 import FormSubmitMessage from "./FormSubmitMessage";
+import VaccinationBookedMsg from "./VaccinationBookedMsg";
 const Vaccination = () => {
   const [date, setDate] = useState(null);
   const [area, setArea] = useState("");
@@ -54,7 +55,7 @@ const Vaccination = () => {
         </>
       )}
       {loginUser.vaccineBooked ? (
-        <h1>vaccine booked</h1>
+        <VaccinationBookedMsg />
       ) : (
         <div className="vaccination-container">
           {showErrorMsg && (
@@ -75,17 +76,17 @@ const Vaccination = () => {
                 style={{ marginBottom: "15px" }}
                 onChange={(event) => setArea(event.target.value)}
               />
-              <Calendar
-                value={date}
-                setValue={setDate}
-                style={{ marginTop: "15px" }}
-              />
               <TextField
                 id="outlined-basic"
                 label="Pin-Code"
                 variant="outlined"
-                style={{ marginTop: "15px" }}
+                style={{ marginBottom: "15px" }}
                 onChange={(event) => setPin(event.target.value)}
+              />
+              <Calendar
+                value={date}
+                setValue={setDate}
+                style={{ marginTop: "15px" }}
               />
               <Button
                 style={{

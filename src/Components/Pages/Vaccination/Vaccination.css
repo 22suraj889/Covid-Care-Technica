@@ -2,15 +2,13 @@
   display: flex;
   flex-direction: column;
 }
-.vaccination-container h1{
-padding-top: 2.5rem;
-font-size: 3rem;
-font-family: 'Arvo', serif;
-color: red;
-
+.vaccination-container h1 {
+  padding-top: 1.5rem;
+  font-size: 2rem;
+  font-family: "Arvo", serif;
+  color: red;
 }
 .vaccination-container__content {
-  margin: 2.8rem 0px;
   display: flex;
   align-items: center;
   justify-content: space-evenly;

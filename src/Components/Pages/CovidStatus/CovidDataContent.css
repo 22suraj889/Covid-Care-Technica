@@ -17,6 +17,7 @@
 .covidDataContent p {
   font-size: 1.2rem;
   font-weight: bold;
+  font-family: "Arvo", serif;
 }
 .covidDataContent span {
   font-weight: bold;

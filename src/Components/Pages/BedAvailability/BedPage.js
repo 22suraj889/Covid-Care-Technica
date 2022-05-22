@@ -3,11 +3,12 @@ import { useNavigate } from "react-router-dom";
 import State from "./State";
 import SearchBar from "../../SearchBar/SearchBar";
 import "./BedPage.css";
-
+import Loading from "../../Loading/Loading";
 const BedPage = ({ setSelectedState }) => {
   let [statesBed, setStatesBed] = useState([]);
   const [bedData, setBedData] = useState([]);
   const [search, setSearch] = useState("");
+  const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
 
   const bedAvailability = async () => {
@@ -18,6 +19,7 @@ const BedPage = ({ setSelectedState }) => {
     const getStates = [...new Set(data.map((item) => item.state))];
     setBedData(data);
     setStatesBed(getStates);
+    setLoading(false);
   };
   useEffect(() => {
     bedAvailability();
@@ -36,18 +38,24 @@ const BedPage = ({ setSelectedState }) => {
     navigate(`/bed-availability/${statePath}`, { state: getState });
   };
   return (
-    <div className="bed_page">
-      <SearchBar search={search} setSearch={setSearch} />
-      <div className="bed_page__states">
-        {statesBed.map((state) => (
-          <State
-            key={state}
-            state={state}
-            onClickStateHandler={onClickStateHandler}
-          />
-        ))}
-      </div>
-    </div>
+    <>
+      {loading ? (
+        <Loading />
+      ) : (
+        <div className="bed_page">
+          <SearchBar search={search} setSearch={setSearch} />
+          <div className="bed_page__states">
+            {statesBed.map((state) => (
+              <State
+                key={state}
+                state={state}
+                onClickStateHandler={onClickStateHandler}
+              />
+            ))}
+          </div>
+        </div>
+      )}
+    </>
   );
 };
 

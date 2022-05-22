@@ -6,7 +6,7 @@ const DisabledModal = ({ setShowModal, hospitalName }) => {
     <Modal setShowModal={setShowModal}>
       <div className="disabled_message">
         <h3>{hospitalName}</h3>
-        <p>Currently we don't have beds</p>
+        <p>Currently we don't have empty bed</p>
       </div>
     </Modal>
   );

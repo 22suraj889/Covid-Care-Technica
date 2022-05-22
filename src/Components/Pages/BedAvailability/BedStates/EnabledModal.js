@@ -50,7 +50,9 @@ const EnabledModal = ({
         </Alert>
       )}
       {loginUser.bedBooked ? (
-        <h1>Bed has been already booked from your account</h1>
+        <h3 style={{ textAlign: "center" }}>
+          Bed has been already booked from your account
+        </h3>
       ) : (
         <div className="enabled_model">
           <h2>{hospitalName}</h2>
