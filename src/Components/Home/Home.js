@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Header from "./Header/Header";
 import Portals from "./Portals/Portals";
 import { Button } from "@mui/material";
@@ -10,6 +10,12 @@ const Home = () => {
     localStorage.removeItem("loginUser");
     navigate("/");
   };
+  useEffect(() => {
+    if (JSON.parse(localStorage.getItem("loginUser")) === null) {
+      navigate("/");
+    }
+    // eslint-disable-next-line
+  }, []);
   return (
     <div>
       <div className="logout-btn">

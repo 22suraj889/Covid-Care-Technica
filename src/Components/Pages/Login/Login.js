@@ -16,6 +16,10 @@ const Login = ({ setLoginActive }) => {
       setLoginError(true);
     } else {
       let usersArray = JSON.parse(localStorage.getItem("users"));
+      if (usersArray === null) {
+        setErrorMessage("Entered email is wrong");
+        setLoginError(true);
+      }
       for (let user of usersArray) {
         if (user.email === loginEmail && user.password === loginPassword) {
           localStorage.setItem("loginUser", JSON.stringify(user));

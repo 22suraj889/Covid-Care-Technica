@@ -34,6 +34,12 @@ const Vaccination = () => {
     };
   }, [showErrorMsg]);
 
+  useEffect(() => {
+    if (JSON.parse(localStorage.getItem("loginUser")) === null) {
+      navigate("/");
+    }
+    // eslint-disable-next-line
+  }, []);
   const loginUser = JSON.parse(localStorage.getItem("loginUser"));
 
   return (

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import CovidData from "./CovidData";
 import "./CovidPage.css";
 import CovidDataStates from "./CovidDataStates";
+import { useNavigate } from "react-router-dom";
 const CovidPage = () => {
   const [covidDataCountry, setCovidDataCountry] = useState({
     confirmed: 0,
@@ -10,6 +11,7 @@ const CovidPage = () => {
     active: 0,
   });
   const [covidDataState, setCovidDataState] = useState([]);
+  const navigate = useNavigate();
   const fetchData = async () => {
     const url = "https://api.rootnet.in/covid19-in/stats/latest";
     const fetchedData = await fetch(url);
@@ -26,7 +28,11 @@ const CovidPage = () => {
     setCovidDataState(myDataItem.regional);
   };
   useEffect(() => {
+    if (JSON.parse(localStorage.getItem("loginUser")) === null) {
+      navigate("/");
+    }
     fetchData();
+    // eslint-disable-next-line
   }, []);
 
   return (

@@ -10,7 +10,7 @@ const BedPage = ({ setSelectedState }) => {
   const [search, setSearch] = useState("");
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
-
+  
   const bedAvailability = async () => {
     const url = `https://api.rootnet.in/covid19-in/hospitals/medical-colleges`;
     const fetchedData = await fetch(url);
@@ -22,7 +22,11 @@ const BedPage = ({ setSelectedState }) => {
     setLoading(false);
   };
   useEffect(() => {
+    if (JSON.parse(localStorage.getItem("loginUser")) === null) {
+      navigate("/");
+    }
     bedAvailability();
+    // eslint-disable-next-line
   }, []);
 
   if (search.trim().length > 0) {
