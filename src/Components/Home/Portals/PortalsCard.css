@@ -1,9 +1,11 @@
+.portal-container {
+  border-bottom: 7px solid #309180;
+}
 .portalsCard {
   padding: 10px;
   display: flex;
   justify-content: space-around;
   align-items: center;
-  border-bottom: 7px solid #309180;
 }
 .portalsCard_reverse {
   flex-direction: row-reverse;
@@ -21,7 +23,7 @@
 .portalsCard_details p {
   margin-top: 5px;
   width: 18rem;
-  font-family: 'Arvo', serif;
+  font-family: "Arvo", serif;
 }
 .portalsCard_details h1 {
   font-family: "Arvo", serif;

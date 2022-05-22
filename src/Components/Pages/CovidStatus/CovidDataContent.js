@@ -9,6 +9,7 @@ const CovidDataContent = ({ content, data, image }) => {
   };
   useEffect(() => {
     counterChange();
+    // eslint-disable-next-line
   }, [data]);
   return (
     <div className="covidDataContent">

@@ -1,6 +1,5 @@
 import Bed from "../../assets/images/bed.jpg";
 import Covid from "../../assets/images/covid-status.jpg";
-import Oxygen from "../../assets/images/oxygen.jpg";
 import Vaccine from "../../assets/images/vaccine.jpg";
 const DatabasePortal = [
   {
