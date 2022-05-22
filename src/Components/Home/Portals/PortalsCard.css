@@ -1,11 +1,9 @@
-.portal-container {
-  border-bottom: 7px solid #309180;
-}
 .portalsCard {
   padding: 10px;
   display: flex;
   justify-content: space-around;
   align-items: center;
+  border-bottom: 7px solid #309180;
 }
 .portalsCard_reverse {
   flex-direction: row-reverse;

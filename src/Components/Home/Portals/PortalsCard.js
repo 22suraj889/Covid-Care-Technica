@@ -14,23 +14,19 @@ const PortalsCard = ({ id, portalName, portalImage, portalDescription }) => {
     Aos.init({ duration: 2000 });
   }, []);
   return (
-    <div className="portal-container">
+    <div className={`portalsCard ${id % 2 === 0 && "portalsCard_reverse"}`}>
       <div
-        className={`portalsCard ${id % 2 === 0 && "portalsCard_reverse"}`}
-        data-aos={`${id % 2 === 0 ? "fade-right" : "fade-left"}`}
+        className="portalsCard_image"
+        onClick={() => onClickPortalHandler(portalName)}
+        data-aos={`${id % 2 === 0 ? "fade-left" : "fade-right"}`}
       >
-        <div
-          className="portalsCard_image"
-          onClick={() => onClickPortalHandler(portalName)}
-        >
-          <img src={portalImage} alt={portalName} />
-        </div>
-        <div className="portalsCard_details">
-          <h1>{portalName}</h1>
-          <p>
-            <i>{portalDescription}</i>
-          </p>
-        </div>
+        <img src={portalImage} alt={portalName} />
+      </div>
+      <div className="portalsCard_details">
+        <h1>{portalName}</h1>
+        <p>
+          <i>{portalDescription}</i>
+        </p>
       </div>
     </div>
   );
